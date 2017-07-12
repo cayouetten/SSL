@@ -1,0 +1,38 @@
+/*NAVIGATION*/
+#navbar {
+    margin-top: 25px;
+}
+
+
+
+/*WELCOME*/
+#contactModal ul {
+    list-style: none;
+}
+
+
+
+/*ABOUT*/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+}
+
+#aboutCarousel {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+    margin-top: 75px;
+}
+
+.carousel-control-prev {
+    margin-right: 10px;
+}
+
+.carousel-control-next {
+    margin-left: 10px;
+}

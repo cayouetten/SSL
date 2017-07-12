@@ -1,127 +1,61 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-    <title>Navigation</title>
-
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            width: 100%;
-            height: 100vh;
-
-            margin: 0;
-            padding: 0;
-
-            font-family: "Courier New", monospace;
-        }
-        header {
-            width: 100%;
-
-            margin: 0;
-            padding: 1%;
-
-            color: #9F9386;
-            background-color: white;
-            border: 1px solid #9F9386;
-        }
-        #navigation {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-
-            width: 100%;
-            height: 100%;
-
-            margin: 0;
-            padding: 0;
-        }
-        #navigation ul {
-            display: flex;
-            justify-content: space-around;
-
-            width: 100%;
-
-            list-style: none;
-
-            margin: 0;
-            padding: 0;
-        }
-        #navigation li {
-            width: calc(100%/3);
-            height: 50px;
-        }
-        #navigation form {
-            width: 100%;
-            height: 100%;
-        }
-        #navigation input[type=submit] {
-            width: 100%;
-            height: 100%;
-
-            background-color: #9F9386;
-            color: white;
-            font-family: "Courier New", monospace;
-            font-size: 110%;
-        }
-        footer {
-            width: 100%;
-            text-align: right;
-
-            margin: 0;
-            padding: 0;
-
-            color: #9F9386;
-            background-color: white;
-            border: 1px solid #9F9386;
-        }
-
-        footer ul {
-            list-style: none;
-
-            margin: 0;
-            padding: 1%;
-        }
-
-    </style>
-
-</head>
-
-<body>
-    <header>
-        <h1>Produce 2: NAVIGATION</h1>
-    </header>
-
-    <section id="navigation">
-        <!-- test -->
-        <?php //var_dump($data); ?>
-        <?php $arr = array("testone", "testtwo", "testthree"); ?>
-
-        <ul>
-            <!-- test array -->
-            <?php foreach($arr as $l): ?>
-                <li>
-                    <form action="<?php echo $l; ?>">
-                        <input type="Submit" value="<?php echo $l; ?>">
-                    </form>
-                </li>
-
-            <?php endforeach; ?>
-
-        </ul>
-    </section>
-
-    <footer>
-        <ul>
-            <li>Nicole Cayouette</li>
-            <li>June 30, 2017</li>
-        </ul>
-    </footer>
-</body>
-</html>
+<!--<div class="container">-->
+<!--    <!-- Static navbar -->-->
+<!--    <nav class="navbar navbar-default">-->
+<!--        <div class="container-fluid">-->
+<!--            <div class="navbar-header">-->
+<!--                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+<!--                    <span class="sr-only">Toggle navigation</span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                </button>-->
+<!--                <a class="navbar-brand" href="#">W2</a>-->
+<!--            </div>-->
+<!--            <div id="navbar" class="navbar-collapse collapse">-->
+<!--                <ul class="nav navbar-nav">-->
+<!--                    <li class="active"><a href="..">Home</a></li>-->
+<!--                    <li><a href="../views/about.php">About</a></li>-->
+<!--                    <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>-->
+<!--                    <li class="dropdown">-->
+<!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>-->
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li><a href="#">Page One</a></li>-->
+<!--                            <li><a href="#">Page Two</a></li>-->
+<!--                            <li><a href="#">Page Three</a></li>-->
+<!--                            <li role="separator" class="divider"></li>-->
+<!--                            <li class="dropdown-header">Browse</li>-->
+<!--                            <li><a href="#">A to M</a></li>-->
+<!--                            <li><a href="#">N to Z</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div><!--/.nav-collapse -->-->
+<!--        </div><!--/.container-fluid -->-->
+<!--    </nav>-->
+<!--</div> <!-- /container -->-->
+<!---->
+<!---->
+<!--<!-- Modal -->-->
+<!--<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="contactModalLabel">Contact Information</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                Contact information provided here.-->
+<!--                <ul>-->
+<!--                    <li>#</li>-->
+<!--                    <li>@</li>-->
+<!--                    <li>?</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

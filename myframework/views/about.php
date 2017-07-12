@@ -58,7 +58,7 @@
     </nav>
 </div> <!-- /container -->
 
-<!-- NAVIGATION MODAL -->
+<!--  NAVIGATION MODAL -->
 <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -83,21 +83,33 @@
     </div>
 </div>
 
-
 <!-- CONTENT -->
-<div class="container">
+<div id="aboutCarousel" class="carousel slide" data-ride="carousel">
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Produce 3</h1>
-        <p>Bootstrap template to manage navigation and implementation of modals, carousels, popovers, and progress bars.</p>
+    <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true">&larr;</span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item item active">
+            <img class="d-block img-fluid" src="../assets/images/fair.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item item">
+            <img class="d-block img-fluid" src="../assets/images/carnival.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item item">
+            <img class="d-block img-fluid" src="../assets/images/pier.jpg" alt="Third slide">
+        </div>
     </div>
+    <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true">&rarr;</span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-    <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-
-</div> <!-- /container -->
+<button type="button" class="btn btn-secondary" data-toggle="popover" data-placement="bottom" data-content="Photos of carnivals and fairs.">
+    info
+</button>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
