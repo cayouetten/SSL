@@ -2,9 +2,11 @@
 
 class About extends AppController{
     public function __construct(){
-        $this->getView("header", array("pagename"=>"about"));
 
-        $this->getView("navigation");
+    }
+
+    public function index() {
+        $this->getView("header", array("pagename"=>"about"));
 
         $this->getView("about");
 

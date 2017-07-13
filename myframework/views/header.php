@@ -21,3 +21,39 @@
 
 
 <body>
+
+<!-- NAVIGATION -->
+<div class="container">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">W2</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li <?=@$data["pagename"]=="home"? 'class="active"':''?>><a href="/welcome">Home</a></li>
+                    <li <?=@$data["pagename"]=="about"? 'class="active"':''?>><a href="/welcome/about">About</a></li>
+                    <li <?=@$data["pagename"]=="contact"? 'class="active"':''?>><a href="/welcome/contact">Contact</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page One</a></li>
+                            <li><a href="#">Page Two</a></li>
+                            <li><a href="#">Page Three</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Browse</li>
+                            <li><a href="#">A to M</a></li>
+                            <li><a href="#">N to Z</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+</div> <!-- /container -->
