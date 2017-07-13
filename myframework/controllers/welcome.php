@@ -51,7 +51,12 @@ class Welcome extends AppController{
         //var_dump($_REQUEST);
 
         if(@$_REQUEST["email"] == "test@email.com") {
-            echo "welcome";
+            //echo "welcome";
+            if(@$_REQUEST["password"] == "root") {
+                echo "welcome";
+            } else {
+                echo "bad login";
+            }
         } else {
             echo "bad login";
         }

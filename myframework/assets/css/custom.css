@@ -38,3 +38,11 @@
 .carousel-control-next {
     margin-left: 10px;
 }
+
+
+/*CONTACT*/
+#contactForm {
+    width: 85%;
+
+    margin: 10px;
+}
