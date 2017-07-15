@@ -1,5 +1,5 @@
 <!-- CONTENT -->
-<form id="contactForm">
+<form id="contactForm" method="POST" action="/welcome/contactRecv">
     <div class="form-group">
         <label for="email">Email address</label>
         <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -12,18 +12,18 @@
     </div>
 
     <div class="form-group">
-        <label name="select" for="select">Select</label>
+        <label name="select" for="select">Level</label>
         <select class="form-control" id="select">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-            <option>Option 5</option>
+            <option>Amateur</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Expert</option>
         </select>
     </div>
 
     <div class="form-group">
-        <label for="textarea">Textarea</label>
+        <label for="textarea">Experience</label>
         <textarea name="textarea" class="form-control" id="textarea" rows="3"></textarea>
     </div>
 
@@ -34,20 +34,25 @@
     </div>
 
     <fieldset class="form-group">
-        <legend>Radio Options</legend>
+        <label>Role</label>
         <div class="form-check">
             <label class="form-check-label">
-                <input name="radios1" type="radio" class="form-check-input" name="radios" id="radios1" value="option1" checked>
-                Option 1
+                <input name="radios1" type="radio" class="form-check-input radios" id="radios1" value="option1" checked>
+                SSL
             </label>
         </div>
         <div class="form-check">
             <label class="form-check-label">
-                <input  name="radios2" type="radio" class="form-check-input" name="radios" id="radios2" value="option2">
-                Option 2
+                <input  name="radios2" type="radio" class="form-check-input radios" id="radios2" value="option2">
+                CSL
             </label>
         </div>
     </fieldset>
+
+    <!-- submission error -->
+    <div class=form-group">
+        <p id="submissionErr" class="text-danger"></p>
+    </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -73,14 +78,15 @@
                 "select":$("#select").val(),
                 "textarea":$("#textarea").val(),
                 "input":$("#input").val(),
-                "radio":$("#radios:checked").val()
+                "radio":$(".radios:checked").val()
             },
             success: function(msg) {
                 if(msg === "welcome") {
-                    alert ("welcome");
+                    document.getElementById("submissionErr").innerHTML = "";
+                    alert ("Welcome User");
                 } else {
-                    alert ("bad login");
-                    //error alert
+//                    alert ("Email and password are not recognized.");
+                    document.getElementById("submissionErr").innerHTML = "Email and password are not recognized.";
                 }
             }
         })

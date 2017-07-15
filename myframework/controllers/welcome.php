@@ -35,14 +35,12 @@ class Welcome extends AppController{
         //var_dump($_POST);
 
         if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-            echo "email invalid";
-        } else {
-            echo "email valid";
-        }
+            echo "Please enter a valid email";
+        } else { }
 
         if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
-            echo "select different password";
-        }
+            echo "Please enter a valid password";
+        } else { }
 
         $this->getView("footer");
     }
@@ -51,14 +49,11 @@ class Welcome extends AppController{
         //var_dump($_REQUEST);
 
         if(@$_REQUEST["email"] == "test@email.com") {
-            //echo "welcome";
-            if(@$_REQUEST["password"] == "root") {
-                echo "welcome";
-            } else {
-                echo "bad login";
-            }
-        } else {
-            echo "bad login";
+            //success
+        }
+
+        if(@$_REQUEST["password"] == "root") {
+            //success
         }
     }
 }

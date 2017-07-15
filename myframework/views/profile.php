@@ -1,12 +1,8 @@
-<!-- CONTENT -->
-<div class="container">
+<?php
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Produce 4</h1>
-        <p>Form submission.</p>
-    </div>
-</div> <!-- /container -->
+echo "welcome user";
+
+?>
 
 
 <!-- Bootstrap core JavaScript
