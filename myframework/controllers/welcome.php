@@ -22,25 +22,55 @@ class Welcome extends AppController{
     }
 
     public function contact() {
-        $this->getView("header",array("pagename"=>"contact"));
+//        $this->getView("header",array("pagename"=>"contact"));
+//
+//        $this->getView("contact");
+//
+//        $this->getView("footer");
 
-        $this->getView("contact");
+        //captcha
+        $this->getView("header", array("pagename"=>"contact"));
+
+        $random = substr( md5(rand()), 0, 7);
+
+        $this->getView("contact",array("cap"=>$random));
 
         $this->getView("footer");
     }
 
     public function contactRecv() {
         $this->getView("header");
-
         //var_dump($_POST);
 
-        if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-            echo "Please enter a valid email";
-        } else { }
+//        if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+//            echo "Please enter a valid email";
+//        } else { }
+//
+//        if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
+//            echo "Please enter a valid password";
+//        } else { }
 
-        if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
-            echo "Please enter a valid password";
-        } else { }
+        //captcha
+        if($_POST["captcha"] == $_SESSION[""]) {
+
+            if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)) {
+                echo "Please enter a valid email";
+                echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+            } else {
+                echo "Email valid";
+            }
+
+            if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
+                echo "Please enter a valid password";
+                echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+            } else {
+                echo "Password valid";
+            }
+
+        } else {
+            echo "Invalid captcha";
+            echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+        }
 
         $this->getView("footer");
     }
