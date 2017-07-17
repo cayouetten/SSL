@@ -22,12 +22,6 @@ class Welcome extends AppController{
     }
 
     public function contact() {
-//        $this->getView("header",array("pagename"=>"contact"));
-//
-//        $this->getView("contact");
-//
-//        $this->getView("footer");
-
         //captcha
         $this->getView("header", array("pagename"=>"contact"));
 
@@ -41,14 +35,6 @@ class Welcome extends AppController{
     public function contactRecv() {
         $this->getView("header");
         //var_dump($_POST);
-
-//        if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-//            echo "Please enter a valid email";
-//        } else { }
-//
-//        if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
-//            echo "Please enter a valid password";
-//        } else { }
 
         //captcha
         if($_POST["captcha"] == $_SESSION[""]) {
