@@ -1,12 +1,15 @@
-<!-- CONTENT -->
-<div class="container">
+<style>
+    #page2Content {
+        margin-left: 125px;
+    }
+</style>
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Produce 6</h1>
-        <p>File upload.</p>
-    </div>
-</div> <!-- /container -->
+
+<!-- CONTENT -->
+<div id="page2Content">
+    <h1>Page Two</h1>
+    <h4>Example page two</h4>
+</div>
 
 
 <!-- Bootstrap core JavaScript

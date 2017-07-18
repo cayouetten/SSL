@@ -34,22 +34,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">W2</a>
+                <a class="navbar-brand" href="/">SSL</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li <?=@$data["pagename"]=="home"? 'class="active"':''?>><a href="/welcome">Home</a></li>
                     <li <?=@$data["pagename"]=="about"? 'class="active"':''?>><a href="/welcome/about">About</a></li>
                     <li <?=@$data["pagename"]=="contact"? 'class="active"':''?>><a href="/welcome/contact">Contact</a></li>
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
+                    <li <?=@$data["pagename"]=="navigation"? 'class="active"':''?>><a href="/navigation">Navigation</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Page One</a></li>
-                            <li><a href="#">Page Two</a></li>
-                            <li><a href="#">Page Three</a></li>
+                            <li><a href="#">Option One</a></li>
+                            <li><a href="#">Option Two</a></li>
+                            <li><a href="#">Option Three</a></li>
                             <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Browse</li>
-                            <li><a href="#">A to M</a></li>
-                            <li><a href="#">N to Z</a></li>
+                            <li class="dropdown-header">MISC</li>
+                            <li><a href="#">Option A</a></li>
+                            <li><a href="#">Option B</a></li>
                         </ul>
                     </li>
                 </ul>
