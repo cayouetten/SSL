@@ -35,9 +35,23 @@
         </form>
 
         <div class="header">
-            <h1>Name</h1>
-            <h4>Title</h4>
-            <span>Description goes here.</span>
+            <?
+            if(@$data["profileUsern"] != "") {
+                echo "<h1>".@$data["profileUsern"]."</h1><br>";
+            } else {
+                echo "<h1>Username</h1><br>";
+            }
+
+            // User Title
+            echo "<h4>Title</h4>";
+
+            // User description
+            if(@$data["profileDescr"] != "") {
+                echo "<span>".@$data["profileDescr"]."</span><br>";
+            } else {
+                echo "<span>About...</span><br>";
+            }
+            ?>
         </div>
     </div>
 </div>
