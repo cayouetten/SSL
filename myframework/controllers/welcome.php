@@ -9,16 +9,12 @@ class Welcome extends AppController{
         $this->getView("header",array("pagename"=>"home"));
 
         $this->getView("welcome");
-
-        $this->getView("footer");
     }
 
     public function about() {
         $this->getView("header",array("pagename"=>"about"));
 
         $this->getView("about");
-
-        $this->getView("footer");
     }
 
     public function contact() {
@@ -28,8 +24,6 @@ class Welcome extends AppController{
         $random = substr( md5(rand()), 0, 7);
 
         $this->getView("contact",array("cap"=>$random));
-
-        $this->getView("footer");
     }
 
     public function contactRecv() {
@@ -57,8 +51,6 @@ class Welcome extends AppController{
             echo "Invalid captcha";
             echo "<br><a href='/welcome/contact'>Click here to go back</a>";
         }
-
-        $this->getView("footer");
     }
 
     public function ajaxPars() {

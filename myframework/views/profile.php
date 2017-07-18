@@ -1,7 +1,32 @@
+<style>
+    #profileContent {
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 65%;
+    }
+    #profileContent div {
+        width: 100%;
+        text-align: center;
+    }
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
 <!--Protected page-->
-<div class="row panel">
+<div id="profileContent" class="row panel">
     <div class="col-md-12 col-xs-12">
-        <img src="./assets/images/image1.png" class="img-thumbnail picture hidden-xs"><br>
+        <div id="profileImg">
+            <?
+            if(@$data["profileImg"] != "") {
+                echo "<img src='../assets/images/".@$data["profileImg"]."' class='img-thumbnail picture hidden-xs profile-img' /><br>";
+            } else {
+                echo "<img src='../assets/images/pier.jpg' class='img-thumbnail picture hidden-xs profile-img' /><br>";
+            }
+            ?>
+        </div>
         <form action="/profile/update" method="POST" enctype="multipart/form-data">
             <label for="img" class="btn btn-default btn-file" style="width:110px;">Browse
                 <input name="img" id="img" type="file" style="display:none;">

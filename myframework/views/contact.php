@@ -1,3 +1,12 @@
+<style>
+    #contactForm {
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 65%;
+    }
+</style>
+
 <!-- CONTENT -->
 <!-- captcha -->
 <? function create_image($cap) {
@@ -128,7 +137,6 @@ create_image($data["cap"]);
                     document.getElementById("submissionErr").innerHTML = "";
                     alert ("Welcome User");
                 } else {
-//                    alert ("Email and password are not recognized.");
                     document.getElementById("submissionErr").innerHTML = "Email and password are not recognized.";
                 }
             }

@@ -1,3 +1,34 @@
+<style>
+    #aboutContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutCarousel {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+
+        margin-top: 75px;
+    }
+
+    #aboutButton {
+        display: flex;
+        justify-content: center;
+
+        padding: 5px;
+    }
+
+    .carousel-control-prev {
+        margin-right: 10px;
+    }
+
+    .carousel-control-next {
+        margin-left: 10px;
+    }
+</style>
+
 <!-- CONTENT -->
 <div id="aboutContent">
     <div id="aboutCarousel" class="carousel slide" data-ride="carousel">
