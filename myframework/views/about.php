@@ -13,7 +13,7 @@
         margin-top: 75px;
     }
 
-    #aboutButton {
+    #aboutButtonWrap {
         display: flex;
         justify-content: center;
 
@@ -54,9 +54,9 @@
         </a>
     </div>
 
-    <div  id="aboutButton">
-        <button type="button" class="btn btn-secondary" data-toggle="popover" data-placement="bottom" data-content="Photos of carnivals and fairs.">
-            info
+    <div  id="aboutButtonWrap">
+        <button id="aboutButton" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Photo slideshow of carinval destinations.">
+            Info
         </button>
     </div>
 </div>
@@ -67,3 +67,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../assets/js/bootstrap.min.js"></script>
+
+<!--POPOVER SCRIPT-->
+<script>
+    $(function () {
+        $('#aboutButton').popover({
+            container: 'body'
+        })
+    })
+</script>
