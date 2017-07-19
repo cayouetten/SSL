@@ -6,7 +6,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        margin-top: 200px;
+        margin-top: 100px;
     }
 </style>
 

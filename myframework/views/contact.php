@@ -9,7 +9,8 @@
 
 <!-- CONTENT -->
 <!-- captcha -->
-<? function create_image($cap) {
+<?
+function create_image($cap) {
     unlink("./assets/images/image1.png");
 
     global $image;
@@ -33,8 +34,7 @@
     ImageString($image, 22, 30, 22, $cap, $text_color);
 
     //session var
-    $captchaImg = "";
-    $_SESSION["captchaImg"] = $captchaImg;
+    $_SESSION["captchaImg"] = $cap;
 
     imagepng($image, "./assets/images/image1.png");
 }

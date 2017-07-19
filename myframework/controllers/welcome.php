@@ -31,7 +31,7 @@ class Welcome extends AppController{
         //var_dump($_POST);
 
         //captcha
-        if($_POST["captcha"] == $_SESSION[""]) {
+        if($_POST["captcha"] == $_SESSION["captchaImg"]) {
 
             if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)) {
                 echo "Please enter a valid email";
