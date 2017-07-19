@@ -39,14 +39,12 @@ class Welcome extends AppController{
             } else {
                 echo "Email valid";
             }
-
-            if(!preg_match("/^a-zA-Z]*S/", $_POST["password"])) {
-                echo "Please enter a valid password";
+            if(!preg_match("/^[0-9a-zA-Z]+$/", $_POST["password"])) {
+                echo "Password invalid. No special characters.";
                 echo "<br><a href='/welcome/contact'>Click here to go back</a>";
             } else {
                 echo "Password valid";
             }
-
         } else {
             echo "Invalid captcha";
             echo "<br><a href='/welcome/contact'>Click here to go back</a>";
@@ -56,12 +54,14 @@ class Welcome extends AppController{
     public function ajaxPars() {
         //var_dump($_REQUEST);
 
-        if(@$_REQUEST["email"] == "test@email.com") {
-            //success
-        }
-
-        if(@$_REQUEST["password"] == "root") {
-            //success
+        if(filter_var(@$_REQUEST["email"],FILTER_VALIDATE_EMAIL)) {
+            if(preg_match("/^[0-9a-zA-Z]+$/", @$_REQUEST["password"])) {
+                echo "welcome";
+            } else {
+                echo "Password invalid. No special characters allowed";
+            }
+        } else {
+            echo "Please enter a valid email";
         }
     }
 }

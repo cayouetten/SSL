@@ -42,17 +42,6 @@
                     <li <?=@$data["pagename"]=="about"? 'class="active"':''?>><a href="/welcome/about">About</a></li>
                     <li <?=@$data["pagename"]=="contact"? 'class="active"':''?>><a href="/welcome/contact">Contact</a></li>
                     <li <?=@$data["pagename"]=="navigation"? 'class="active"':''?>><a href="/navigation">Navigation</a></li>
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Option One</a></li>
-                            <li><a href="#">Option Two</a></li>
-                            <li><a href="#">Option Three</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">MISC</li>
-                            <li><a href="#">Option A</a></li>
-                            <li><a href="#">Option B</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <span style="color:red">
                     <?=@$_REQUEST["msg"]?@$_REQUEST["msg"]:''; ?>

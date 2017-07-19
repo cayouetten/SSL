@@ -5,12 +5,6 @@ class auth extends AppController {
 
     public function login() {
         if($_REQUEST["username"] && $_REQUEST["password"]) {
-            //test
-//            if($_REQUEST["username"] == "test@email.com" && $_REQUEST["password"] == "root") {
-//                $_SESSION["loggedin"] = 1;
-//                header("Location:/welcome");
-//            }
-
             //.txt read test
             $loginCredentials = file("./assets/sources/loginTest.txt");
             $usern = $_REQUEST["username"];

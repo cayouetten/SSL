@@ -2,8 +2,13 @@
     #contactForm {
         margin-left: auto;
         margin-right: auto;
-
         width: 65%;
+    }
+    #formSuccess {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 50px;
     }
 </style>
 
@@ -49,14 +54,26 @@ create_image($data["cap"]);
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
 
-    <div class="form-group">
-        <label name="password" for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+    <!-- email error -->
+    <div class=form-group">
+        <p id="emailErr" class="text-danger"></p>
     </div>
 
+
     <div class="form-group">
-        <label name="select" for="select">Level</label>
-        <select class="form-control" id="select">
+        <label for="password">Password</label>
+        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+    <!-- password error -->
+    <div class=form-group">
+        <p id="passwordErr" class="text-danger"></p>
+    </div>
+
+
+    <div class="form-group">
+        <label for="select">Level</label>
+        <select name="select" class="form-control" id="select">
             <option>Amateur</option>
             <option>Beginner</option>
             <option>Intermediate</option>
@@ -70,6 +87,12 @@ create_image($data["cap"]);
         <textarea name="textarea" class="form-control" id="textarea" rows="3"></textarea>
     </div>
 
+    <!-- textarea error -->
+    <div class=form-group">
+        <p id="textareaErr" class="text-danger"></p>
+    </div>
+
+
     <div class="form-group">
         <label for="input">File Input</label>
         <input name="input" type="file" class="form-control-file" id="input" aria-describedby="fileHelp">
@@ -80,13 +103,13 @@ create_image($data["cap"]);
         <label>Role</label>
         <div class="form-check">
             <label class="form-check-label">
-                <input name="radios1" type="radio" class="form-check-input radios" id="radios1" value="option1" checked>
+                <input name="radios1" type="radio" class="form-check-input radios" id="radios1" value="SSL" checked>
                 SSL
             </label>
         </div>
         <div class="form-check">
             <label class="form-check-label">
-                <input  name="radios2" type="radio" class="form-check-input radios" id="radios2" value="option2">
+                <input  name="radios2" type="radio" class="form-check-input radios" id="radios2" value="CSL">
                 CSL
             </label>
         </div>
@@ -111,6 +134,8 @@ create_image($data["cap"]);
     <input type="button" value="Ajax Submit"  id="ajaxButton" class="btn btn-primary"/>
 </form>
 
+<!--form submission successful-->
+<div id="formSuccess" class="form-group"></div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -121,25 +146,69 @@ create_image($data["cap"]);
 
 <script>
     $("#ajaxButton").click(function(){
-        $.ajax({
-            method: "POST",
-            url: "/welcome/ajaxPars",
-            data: {
-                "email": $("#email").val(),
-                "password":$("#password").val(),
-                "select":$("#select").val(),
-                "textarea":$("#textarea").val(),
-                "input":$("#input").val(),
-                "radio":$(".radios:checked").val()
-            },
-            success: function(msg) {
-                if(msg === "welcome") {
-                    document.getElementById("submissionErr").innerHTML = "";
-                    alert ("Welcome User");
-                } else {
-                    document.getElementById("submissionErr").innerHTML = "Email and password are not recognized.";
+
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var select = $("#select").val();
+        var textarea = $("#textarea").val();
+        var input = $("#input").val();
+        var radio = $(".radios:checked").val();
+
+        var complete = false;
+
+        if(email === "") {
+            document.getElementById("emailErr").innerHTML = "Please enter email";
+            complete = false;
+        } else {
+            document.getElementById("emailErr").innerHTML = "";
+            complete = true;
+        }
+
+        if (password === "") {
+            document.getElementById("passwordErr").innerHTML = "Please enter password";
+            complete = false;
+        } else {
+            document.getElementById("passwordErr").innerHTML = "";
+            complete = true;
+        }
+
+        if (textarea === "") {
+            document.getElementById("textareaErr").innerHTML = "Please enter text";
+            complete = false;
+        } else {
+            document.getElementById("textareaErr").innerHTML = "";
+            complete = true;
+        }
+
+        if(complete) {
+            $.ajax({
+                method: "POST",
+                url: "/welcome/ajaxPars",
+                data: {
+                    "email" : email,
+                    "password" : password,
+                    "select" : select,
+                    "textarea" : textarea,
+                    "input" : input,
+                    "radio" : radio
+                },
+                success: function(msg) {
+                    if(msg === "welcome") {
+                        document.getElementById("submissionErr").innerHTML = "";
+
+                        //show form submission
+                        document.getElementById("contactForm").innerHTML = "";
+                        document.getElementById("formSuccess").innerHTML = "<h2>Thank you for registering!</h2>" +
+                            "<h4>"+ email +"</h4>" +
+                            "<h4>"+ select +"</h4>" +
+                            "<h4>"+ textarea +"</h4>" +
+                            "<h4>"+ input +"</h4>" +
+                            "<h4>"+ radio +"</h4>" ;
+                    } else {
+                        document.getElementById("submissionErr").innerHTML = msg;
+                    }
                 }
-            }
-        })
+            })
+        }
     })
 </script>
