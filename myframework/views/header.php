@@ -12,10 +12,10 @@
     <title>Nicole Cayouette</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" type="text/css" rel="stylesheet">
 
 </head>
 
@@ -40,7 +40,7 @@
                 <ul class="nav navbar-nav">
                     <li <?=@$data["pagename"]=="home"? 'class="active"':''?>><a href="/welcome">Home</a></li>
                     <li <?=@$data["pagename"]=="about"? 'class="active"':''?>><a href="/about">About</a></li>
-                    <li <?=@$data["pagename"]=="contact"? 'class="active"':''?>><a href="/welcome/contact">Contact</a></li>
+                    <li <?=@$data["pagename"]=="register"? 'class="active"':''?>><a href="/register">Register</a></li>
                     <li <?=@$data["pagename"]=="navigation"? 'class="active"':''?>><a href="/navigation">Navigation</a></li>
                 </ul>
                 <span style="color:red">

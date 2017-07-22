@@ -39,6 +39,7 @@ class auth extends AppController {
                                                                      //encrypt passw
             if($data) {
                 $_SESSION["loggedin"]=1;
+                $_SESSION["email"] = $_REQUEST["username"];
                 header("Location:/welcome?msg=Welcome");
             } else {
                 header("Location:/welcome?msg=Bad Login");

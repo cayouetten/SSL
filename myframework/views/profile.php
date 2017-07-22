@@ -1,3 +1,4 @@
+<link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <style>
     #profileContent {
         margin-left: auto;
@@ -19,13 +20,11 @@
 <div id="profileContent" class="row panel">
     <div class="col-md-12 col-xs-12">
         <div id="profileImg">
-            <?
-            if(@$data["profileImg"] != "") {
-                echo "<img src='../assets/images/".@$data["profileImg"]."' class='img-thumbnail picture hidden-xs profile-img' /><br>";
+            <? if(@$data["profileImg"] != "") {
+                echo "<img src='../../assets/images/".@$data["profileImg"]."' class='img-thumbnail picture hidden-xs profile-img' /><br>";
             } else {
-                echo "<img src='../assets/images/pier.jpg' class='img-thumbnail picture hidden-xs profile-img' /><br>";
-            }
-            ?>
+                echo "<img src='../../assets/images/pier.jpg' class='img-thumbnail picture hidden-xs profile-img' /><br>";
+            } ?>
         </div>
         <form action="/profile/update" method="POST" enctype="multipart/form-data">
             <label for="img" class="btn btn-default btn-file" style="width:110px;">Browse
@@ -35,23 +34,15 @@
         </form>
 
         <div class="header">
-            <?
-            if(@$data["profileUsern"] != "") {
-                echo "<h1>".@$data["profileUsern"]."</h1><br>";
-            } else {
-                echo "<h1>Username</h1><br>";
-            }
+            <? foreach(@$data as $d){
+                if(isset($d["email"])) {
+                    echo "<h1>".$d["email"]."</h1>";
+                }
+            } ?>
 
-            // User Title
-            echo "<h4>Title</h4>";
+            <h4>Title</h4>
 
-            // User description
-            if(@$data["profileDescr"] != "") {
-                echo "<span>".@$data["profileDescr"]."</span><br>";
-            } else {
-                echo "<span>About...</span><br>";
-            }
-            ?>
+            <span>About...</span>
         </div>
     </div>
 </div>

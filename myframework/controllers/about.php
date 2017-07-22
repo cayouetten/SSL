@@ -1,3 +1,5 @@
+<link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
 <?php
 
 class about extends appController {

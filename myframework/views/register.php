@@ -47,7 +47,7 @@ function create_image($cap) {
 create_image($data["cap"]);
 ?>
 
-<form id="contactForm" method="POST" action="/welcome/contactRecv">
+<form id="contactForm" method="POST" action="/register/contactRecv">
     <div class="form-group">
         <label for="email">Email address</label>
         <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -131,7 +131,7 @@ create_image($data["cap"]);
 
 <!--    <button type="submit" class="btn btn-primary">Submit</button>-->
 
-    <input type="button" value="Submit"  id="ajaxButton" class="btn btn-primary"/>
+    <input type="button" value="Submit"  id="addUserButton" class="btn btn-primary"/>
 </form>
 
 <!--form submission successful-->
@@ -145,7 +145,7 @@ create_image($data["cap"]);
 <script src="../assets/js/bootstrap.min.js"></script>
 
 <script>
-    $("#ajaxButton").click(function(){
+    $("#addUserButton").click(function(){
 
         var email = $("#email").val();
         var password = $("#password").val();
@@ -184,7 +184,7 @@ create_image($data["cap"]);
         if(complete) {
             $.ajax({
                 method: "POST",
-                url: "/welcome/ajaxPars",
+                url: "/register/addUser",
                 data: {
                     "email" : email,
                     "password" : password,
@@ -203,21 +203,27 @@ create_image($data["cap"]);
 
                         //show form submission
                         document.getElementById("contactForm").innerHTML = "";
-                        document.getElementById("formSuccess").innerHTML = "<h2>Thank you for registering!</h2>" +
+                        document.getElementById("formSuccess").innerHTML = "<h2>Registration successful!</h2>" +
                             "<h4>"+ email +"</h4>" +
                             "<h4>"+ select +"</h4>" +
                             "<h4>"+ textarea +"</h4>" +
                             "<h4>"+ input +"</h4>" +
-                            "<h4>"+ radio +"</h4>" ;
+                            "<h4>"+ radio +"</h4>" +
+                            "<a href='/register/deleteUser/"+email+"'>DELETE</a>" +
+                            "<a href='/register/showEditUserForm/"+email+"'>EDIT</a>";
                     } else if(msg === "emailErr") {
                         document.getElementById("emailErr").innerHTML = "Please enter a valid email";
+                    } else if(msg === "emailExistsErr") {
+                        document.getElementById("emailErr").innerHTML = "Email already taken. Please try again";
                     } else if(msg === "passwordErr") {
                         document.getElementById("passwordErr").innerHTML = "Password invalid. No special characters allowed";
                     } else if (msg === "captchaErr") {
                         document.getElementById("submissionErr").innerHTML = "Could not validate captcha";
+                    } else {
+                        console.log("error" + msg);
                     }
                 }
             })
         }
-    })
+    });
 </script>

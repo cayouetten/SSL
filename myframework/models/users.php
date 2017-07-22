@@ -23,9 +23,15 @@ class users {
         $this->sql->execute($value);
     }
 
-    public function delete() {}
+    public function delete($sql, $value=array()) {
+        $this->sql = $this->db->prepare($sql);
+        $this->sql->execute($value);
+    }
 
-    public function update() {}
+    public function update($sql, $value=array()) {
+        $this->sql = $this->db->prepare($sql);
+        $this->sql->execute($value);
+    }
 }
 
 
