@@ -4,6 +4,7 @@ session_start();
 class AppController {
     public function __construct($urlPathParts, $config){
         //db info
+        $this->db = new PDO("mysql:dbname=".$config["dbname"].";", $config["dbuser"], $config["dbpass"]);
 
         $this->urlPathParts = $urlPathParts;
 
@@ -13,7 +14,15 @@ class AppController {
             $appcon = new $urlPathParts[0]($this);
 
             if(isset($urlPathParts[1])){
-                $appcon->$urlPathParts[1]();
+                //$appcon->$urlPathParts[1]();
+
+                //method params
+                if(isset($urlPathParts[2])) {
+                    $appcon->$urlPathParts[1]($urlPathParts[2]);
+                } else {
+                    $appcon->$urlPathParts[1]();
+                }
+
             } else {
                 $methodVariable = array($appcon, 'index');
 
@@ -42,9 +51,10 @@ class AppController {
         require_once './views/'.$page.".php";
     }
 
-    public function getModel(){
-        //later
-        //get page then pass data to that page(view)
+    public function getModel($page){
+        require_once './models/'.$page.".php";
+        $model = new $page($this);
+        return $model;
     }
 }
 

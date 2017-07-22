@@ -129,9 +129,9 @@ create_image($data["cap"]);
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+<!--    <button type="submit" class="btn btn-primary">Submit</button>-->
 
-    <input type="button" value="Ajax Submit"  id="ajaxButton" class="btn btn-primary"/>
+    <input type="button" value="Submit"  id="ajaxButton" class="btn btn-primary"/>
 </form>
 
 <!--form submission successful-->
@@ -153,6 +153,7 @@ create_image($data["cap"]);
         var textarea = $("#textarea").val();
         var input = $("#input").val();
         var radio = $(".radios:checked").val();
+        var captcha = $("#captcha").val();
 
         var complete = false;
 
@@ -190,10 +191,14 @@ create_image($data["cap"]);
                     "select" : select,
                     "textarea" : textarea,
                     "input" : input,
-                    "radio" : radio
+                    "radio" : radio,
+
+                    "captcha" : captcha
                 },
                 success: function(msg) {
                     if(msg === "welcome") {
+                        document.getElementById("emailErr").innerHTML = "";
+                        document.getElementById("passwordErr").innerHTML = "";
                         document.getElementById("submissionErr").innerHTML = "";
 
                         //show form submission
@@ -204,8 +209,12 @@ create_image($data["cap"]);
                             "<h4>"+ textarea +"</h4>" +
                             "<h4>"+ input +"</h4>" +
                             "<h4>"+ radio +"</h4>" ;
-                    } else {
-                        document.getElementById("submissionErr").innerHTML = msg;
+                    } else if(msg === "emailErr") {
+                        document.getElementById("emailErr").innerHTML = "Please enter a valid email";
+                    } else if(msg === "passwordErr") {
+                        document.getElementById("passwordErr").innerHTML = "Password invalid. No special characters allowed";
+                    } else if (msg === "captchaErr") {
+                        document.getElementById("submissionErr").innerHTML = "Could not validate captcha";
                     }
                 }
             })
