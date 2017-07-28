@@ -40,7 +40,7 @@
                 <ul class="nav navbar-nav">
                     <li <?=@$data["pagename"]=="home"? 'class="active"':''?>><a href="/welcome">Home</a></li>
                     <li <?=@$data["pagename"]=="about"? 'class="active"':''?>><a href="/about">About</a></li>
-                    <li <?=@$data["pagename"]=="api"? 'class="active"':''?>><a href="/api/showApi">API</a></li>
+                    <li <?=@$data["pagename"]=="api"? 'class="active"':''?>><a href="/api">API</a></li>
                     <li <?=@$data["pagename"]=="register"? 'class="active"':''?>><a href="/register">Register</a></li>
                     <li <?=@$data["pagename"]=="navigation"? 'class="active"':''?>><a href="/navigation">Navigation</a></li>
                 </ul>

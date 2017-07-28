@@ -7,6 +7,18 @@ class apiModel {
         $this->db = $parent->db;
     }
 
+    public function googleYouTube($term="") {
+        $client = new Google_Client();
+        $client->setApplicationName("ssl-ncay");
+        $client->setDeveloperKey("AIzaSyCxLfalBt9eoSG9CKAelRMPnNSKCANyirQ");
+
+        $service = new Google_Service_YouTube($client);
+
+        $result = $service->search->listSearch('id, snippet', array("q" => $term, "type"=>"video"));
+
+        return $result;
+    }
+
     public function googleBooks($term="") {
         $client = new Google_Client();
         $client->setApplicationName("ssl-ncay");
